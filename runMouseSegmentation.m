@@ -1,5 +1,5 @@
 function [] = runMouseSegmentation(param)
-% Segmentation code for mikki's behavior experiments, this is the main
+% Segmentation code for mouse behavior experiments, this is the main
 % framework of dealing with all three conditions
 % SH Nov 2017
 
@@ -12,8 +12,8 @@ savepath = param.spath.seg;
 %% process files
 for n = 1:size(fileIndx,1)
     
-    movieParam = getAviInfo_mikki(fileIndx(n,1));
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,1));
+    movieParam = getAviInfo(fileIndx(n,1));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,1));
     objinfo_name = movieParam.fileName;
     fprintf('processing %s...\n',movieParam.fileName);
     if ~exist([savepath movieParam.fileName '_seg.mat'],'file')
@@ -27,7 +27,7 @@ for n = 1:size(fileIndx,1)
     end
     
     if ~isnan(fileIndx(n,2))
-        movieParam = getAviInfo_mikki(fileIndx(n,2));
+        movieParam = getAviInfo(fileIndx(n,2));
         fprintf('processing %s...\n',movieParam.fileName);
         if ~exist([savepath movieParam.fileName '_seg.mat'],'file')
             load([infopath objinfo_name '_info.mat']);
@@ -41,7 +41,7 @@ for n = 1:size(fileIndx,1)
     end
     
     if ~isnan(fileIndx(n,3))
-        movieParam = getAviInfo_mikki(fileIndx(n,3));
+        movieParam = getAviInfo(fileIndx(n,3));
         fprintf('processing %s...\n',movieParam.fileName);
         if ~exist([savepath movieParam.fileName '_seg.mat'],'file')
             load([infopath objinfo_name '_info.mat']);

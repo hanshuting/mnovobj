@@ -15,9 +15,9 @@ for n = 1:numExpt
     fprintf('\n*********************************************************\n');
 
     %% habituation
-    [fname,fpath] = fileinfo_mikki_avi(fileIndx(n,1));
+    [fname,fpath] = fileinfo_avi(fileIndx(n,1));
     fprintf('%s\n',fname);
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,1));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,1));
     % fprintf('%s\n',movieParam.fileName');
     fprintf('----------Habituation experiment----------\n');
     
@@ -47,8 +47,8 @@ for n = 1:numExpt
     if ~isnan(fileIndx(n,2))
         
     fprintf('----------Familarization experiment----------\n');
-    [fname,fpath] = fileinfo_mikki_avi(fileIndx(n,2));
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,2));
+    [fname,fpath] = fileinfo_avi(fileIndx(n,2));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,2));
     
     % select objects
     vid = VideoReader([fpath '\' fname '.avi']);
@@ -95,8 +95,8 @@ for n = 1:numExpt
     if ~isnan(fileIndx(n,3))
     
     fprintf('----------Novel object experiment----------\n');
-    [fname,fpath] = fileinfo_mikki_avi(fileIndx(n,3));
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,3));
+    [fname,fpath] = fileinfo_avi(fileIndx(n,3));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,3));
     
     % select objects
     vid = VideoReader([fpath '\' fname '.avi']);

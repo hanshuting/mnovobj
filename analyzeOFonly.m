@@ -1,5 +1,5 @@
 function [] = analyzeOFonly(param)
-% Analysis for mikki's behavior experiments, this scripts combines all
+% Analysis for open field behavior experiments, this scripts combines all
 % post-processing from the tracking result
 % SH Nov 2017
 
@@ -26,8 +26,8 @@ for n = 1:numExpt
 %     end
     
     % load results
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,1));
-    movieParam = getAviInfo_mikki(fileIndx(n,1));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,1));
+    movieParam = getAviInfo(fileIndx(n,1));
     fprintf('\nanalyzing %s...\n',movieParam.fileName);
     fprintf('1. habituation\n');
     if movieParam.numImages>=expt_thresh*movieParam.fr;

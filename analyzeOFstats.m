@@ -42,8 +42,8 @@ for ii = 1:2 % 1: ctrl; 2: expt
         end
         for n = 1:size(indx,1)
 
-%             movieParam = getVidInfo_mikki('',indx(n,1));
-            movieParam = getAviInfo_mikki(indx(n,1));
+%             movieParam = getVidInfo('',indx(n,1));
+            movieParam = getAviInfo(indx(n,1));
             fr = movieParam.fr;
             ld = load([statspath movieParam.fileName '_results.mat']);
 
@@ -89,37 +89,37 @@ figure;set(gcf,'color','w','position',[2000 473 748 445]);
 
 % edge time
 subplot(2,3,1); hold on;
-plot_mikki_box_pair(edge_time_all,[0 0 0],cc.orange,p)
+plot_box_pair(edge_time_all,[0 0 0],cc.orange,p)
 ylabel('edge time (s)');
 legend('off')
 
 % center time
 subplot(2,3,2); hold on;
-plot_mikki_box_pair(cent_time_all,[0 0 0],cc.orange,p)
+plot_box_pair(cent_time_all,[0 0 0],cc.orange,p)
 ylabel('center time (s)');
 legend('off')
 
 % rest time
 subplot(2,3,3); hold on;
-plot_mikki_box_pair(rest_time_all,[0 0 0],cc.orange,p)
+plot_box_pair(rest_time_all,[0 0 0],cc.orange,p)
 ylabel('rest time (s)');
 legend('off')
 
 % distance traveled
 subplot(2,3,4); hold on;
-plot_mikki_box_pair(displace_all,[0 0 0],cc.orange,p)
+plot_box_pair(displace_all,[0 0 0],cc.orange,p)
 ylabel('distance traveled (habi)');
 legend('off')
 
 % distance traveled - fam
 subplot(2,3,5); hold on;
-plot_mikki_box_pair(displace_fam_all,[0 0 0],cc.orange,p)
+plot_box_pair(displace_fam_all,[0 0 0],cc.orange,p)
 ylabel('distance traveled (fam)');
 legend('off')
 
 % distance traveled - fam
 subplot(2,3,6); hold on;
-plot_mikki_box_pair(displace_nov_all,[0 0 0],cc.orange,p)
+plot_box_pair(displace_nov_all,[0 0 0],cc.orange,p)
 ylabel('distance traveled (nov)');
 
 saveas(gcf,[figpath 'stats_general.fig']);
@@ -129,48 +129,48 @@ figure;set(gcf,'color','w','position',[2000 473 748 445]);
 
 % lateralization time nov
 subplot(2,4,1); hold on;
-plot_mikki_obj(nor_region_time_all,[0 0 0],cc.orange,p)
+plot_obj(nor_region_time_all,[0 0 0],cc.orange,p)
 ylabel('novel region time (s)');
 legend('off')
 
 % object time in the first 5min
 subplot(2,4,2); hold on;
-plot_mikki_obj(fam_expt_time_all,[0 0 0],cc.orange,p)
+plot_obj(fam_expt_time_all,[0 0 0],cc.orange,p)
 ylabel('fam obj time in first x min (s)');
 legend('off')
 
 subplot(2,4,3); hold on;
-plot_mikki_obj(nor_expt_time_all,[0 0 0],cc.orange,p)
+plot_obj(nor_expt_time_all,[0 0 0],cc.orange,p)
 ylabel('nov obj time in first x min (s)');
 % legend('off')
 
 % total exploration time fam
 subplot(2,4,4); hold on;
-plot_mikki_box_pair(cellfun(@(x) sum(x,2)',fam_expt_time_all,'uniformoutput',false),...
+plot_box_pair(cellfun(@(x) sum(x,2)',fam_expt_time_all,'uniformoutput',false),...
     [0 0 0],cc.orange,p)
 ylabel('total exploration time fam(s)');
 legend('off');
 
 % lateralization time fam
 subplot(2,4,5); hold on;
-plot_mikki_obj(fam_region_time_all,[0 0 0],cc.orange,p)
+plot_obj(fam_region_time_all,[0 0 0],cc.orange,p)
 ylabel('fam region time (s)');
 legend('off')
 
 % experiment cutoff time
 subplot(2,4,6); hold on;
-plot_mikki_box_pair(fam_cut_time_all,[0 0 0],cc.orange,p)
+plot_box_pair(fam_cut_time_all,[0 0 0],cc.orange,p)
 ylabel('fam obj cutoff time(s)');
 legend('off')
 
 subplot(2,4,7); hold on;
-plot_mikki_box_pair(nor_cut_time_all,[0 0 0],cc.orange,p)
+plot_box_pair(nor_cut_time_all,[0 0 0],cc.orange,p)
 ylabel('nov obj cutoff time(s)');
 legend('off')
 
 % total exploration time nov
 subplot(2,4,8); hold on;
-plot_mikki_box_pair(cellfun(@(x) sum(x,2)',nor_expt_time_all,'uniformoutput',false),...
+plot_box_pair(cellfun(@(x) sum(x,2)',nor_expt_time_all,'uniformoutput',false),...
     [0 0 0],cc.orange,p)
 ylabel('total exploration time nov(s)');
 
@@ -213,12 +213,12 @@ end
 
 figure; set(gcf,'color','w')
 subplot(1,2,1); hold on
-plot_mikki_box_pair(obj_time_ratio_ctrl,[0 0 0],cc.orange,p)
+plot_box_pair(obj_time_ratio_ctrl,[0 0 0],cc.orange,p)
 set(gca,'xtick',[1 2],'xticklabel',{'pre','post'})
 ylabel('object time ratio (ctrl)');
 legend off
 subplot(1,2,2); hold on
-plot_mikki_box_pair(obj_time_ratio_expt,[0 0 0],cc.orange,p)
+plot_box_pair(obj_time_ratio_expt,[0 0 0],cc.orange,p)
 set(gca,'xtick',[1 2],'xticklabel',{'pre','post'})
 ylabel('object time ratio (expt)');
 legend off

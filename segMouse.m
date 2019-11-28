@@ -23,7 +23,7 @@ im = imadjust(im,[0,1],[0,1],gamma);
 % im = adapthisteq(im,'Distribution','uniform');
 
 % keep only the box region
-% some of mikki's videos have different image sizes across session, just to
+% some of the behavior videos have different image sizes across session, just to
 % deal with this issue here
 obj_region_all = logical(sum(obj_region,3));
 boximsz = size(box_region);

@@ -1,5 +1,5 @@
 function [] = analyzeOFtraj(param)
-% Analysis for mikki's behavior experiments, this scripts combines all
+% Analysis for open field behavior experiments, this scripts combines all
 % post-processing from the tracking result
 % SH Nov 2017
 
@@ -27,8 +27,8 @@ for n = 1:numExpt
     
     %% habituation
     % load results
-    % movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,1));
-    movieParam = getAviInfo_mikki(fileIndx(n,1));
+    % movieParam = getVidInfo(dpath{n},fileIndx(n,1));
+    movieParam = getAviInfo(fileIndx(n,1));
     fprintf('\nanalyzing %s...\n',movieParam.fileName);
     fprintf('1. habituation\n');
     if movieParam.numImages>=expt_thresh*movieParam.fr;
@@ -131,8 +131,8 @@ for n = 1:numExpt
     %% familarization
     % load results
     fprintf('2. familarization\n');
-    movieParam = getAviInfo_mikki(fileIndx(n,2));
-%     movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,2));
+    movieParam = getAviInfo(fileIndx(n,2));
+%     movieParam = getVidInfo(dpath{n},fileIndx(n,2));
     dims = [movieParam.imageSize(1),movieParam.imageSize(2),movieParam.numImages];
     load([segpath movieParam.fileName '_seg.mat']);
     load([infopath movieParam.fileName '_info.mat']);
@@ -246,8 +246,8 @@ for n = 1:numExpt
 
         % load results
         fprintf('3. novel object\n');
-        movieParam = getAviInfo_mikki(fileIndx(n,3));
-%         movieParam = getVidInfo_mikki(dpath{n},fileIndx(n,3));
+        movieParam = getAviInfo(fileIndx(n,3));
+%         movieParam = getVidInfo(dpath{n},fileIndx(n,3));
         dims = [movieParam.imageSize(1),movieParam.imageSize(2),movieParam.numImages];
         load([segpath movieParam.fileName '_seg.mat']);
         load([infopath movieParam.fileName '_info.mat']);
@@ -349,8 +349,8 @@ for n = 1:numExpt
     
     %% save results
     fprintf('saving results...\n');
-%     fname = fileinfo_mikki(fileIndx(n,1));
-    fname = fileinfo_mikki_avi(fileIndx(n,1));
+%     fname = fileinfo(fileIndx(n,1));
+    fname = fileinfo_avi(fileIndx(n,1));
     save([savepath fname '_results.mat'],'edge_time',...
         'cent_time','rest_time','fam_obj_time_frame','fam_obj_time_final',...
         'nor_obj_time_frame','nor_obj_time_final','nor_obj_indx',...
